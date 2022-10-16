@@ -1,0 +1,66 @@
+<div class="row justify-content-center mt-5">
+  <div class="col-4 mr-3">
+    <h4 class="text-center">Nuevo producto</h4>
+    <div class="col">
+      <form action="">
+        <div class="form-group mt-3">
+          <label for="cod">Codigo</label>
+          <input type="text" class="form-control" id="cod" placeholder="Ingrese codigo">
+        </div>
+        <div class="form-group mt-3">
+          <label for="cod">Imagen</label>
+          <input type="file" class="form-control" id="cod">
+        </div>
+        <div class="form-group mt-3">
+          <label for="descripcion">Descripción</label>
+          <textarea type="text" class="form-control" id="descripcion" style="max-height: 80px;" placeholder="Ingrese una descripción de producto"></textarea>
+        </div>
+        <div class="row mt-3">
+          <div class="form-group col-6 m-0">
+            <label for="">Precios</label>
+            <div class="input-group">
+              <input type="number" class="form-control" placeholder="$">
+              <button class="btn btn-outline-secondary" type="button" id="button-addon2" title="Añadir precio">+</button>
+            </div>
+          </div>
+          <div class="form-group col-6 w-50 d-block">
+            <label for="iva">IVA</label>
+            <div class="input-group">
+              <span class="input-group-text" id="basic-addon1">%</span>
+              <input type="number" class="form-control w-25" id="iva">
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group mt-3">
+          <div class="input-group mt-3">
+            <input class="mt-0 rounded" type="checkbox" id="paraVenta">
+            <label for="paraVenta" class="mx-2">Para venta</label>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="col mt-4">
+      <button class="btn btn-success w-100" data-toggle="modal" data-target="#exampleModal">Añadir Producto</button>
+    </div>
+  </div>
+
+  <div class="col-8">
+    <table class="table table-striped bg-dark text-white">
+      <tr>
+        <th>Codigo</th>
+        <th>Descripcion</th>
+        <th>Pecios</th>
+        <th>Iva</th>
+        <th></th>
+      </tr>
+      <tr *ngFor="let producto of productos">
+        <td>{{producto.codigo}}</td>
+        <td>{{producto.descripcion}}</td>
+        <td>{{producto.listaDePrecios}}</td>
+        <td>{{producto.porcentajeIva}}</td>
+        <td><a href="">editar</a></td>
+      </tr>
+    </table>
+  </div>
+</div>
