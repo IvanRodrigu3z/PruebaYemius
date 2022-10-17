@@ -5,49 +5,49 @@
       <form action="">
         <div class="form-group mt-3">
           <label for="cod">Codigo</label>
-          <input type="text" class="form-control" id="cod" placeholder="Ingrese codigo">
+          <input type="text" class="form-control" id="cod" placeholder="Ingrese codigo" name="codigo" [(ngModel)]="producto.codigo">
         </div>
         <div class="form-group mt-3">
           <label for="cod">Imagen</label>
-          <input type="file" class="form-control" id="cod">
+          <input type="file" class="form-control" id="cod" name="imagen" [(ngModel)]="producto.imagen">
         </div>
         <div class="form-group mt-3">
           <label for="descripcion">Descripción</label>
-          <textarea type="text" class="form-control" id="descripcion" style="max-height: 80px;" placeholder="Ingrese una descripción de producto"></textarea>
+          <textarea type="text" class="form-control" id="descripcion" style="max-height: 80px;" placeholder="Ingrese una descripción de producto" name="descipcion" [(ngModel)]="producto.descripcion"></textarea>
         </div>
         <div class="row mt-3">
           <div class="form-group col-6 m-0">
             <label for="">Precios</label>
             <div class="input-group">
-              <input type="number" class="form-control" placeholder="$">
-              <button class="btn btn-outline-secondary" type="button" id="button-addon2" title="Añadir precio">+</button>
+              <input type="number" class="form-control" placeholder="$" name="precio" [(ngModel)]="precio">
+              <button class="btn btn-outline-secondary" type="button" id="button-addon2" title="Añadir precio" (click)="addPrice()">+</button>
             </div>
           </div>
           <div class="form-group col-6 w-50 d-block">
             <label for="iva">IVA</label>
             <div class="input-group">
               <span class="input-group-text" id="basic-addon1">%</span>
-              <input type="number" class="form-control w-25" id="iva">
+              <input type="number" class="form-control w-25" id="iva" name="iva" [(ngModel)]="producto.porcentajeIva">
             </div>
           </div>
         </div>
 
         <div class="form-group mt-3">
           <div class="input-group mt-3">
-            <input class="mt-0 rounded" type="checkbox" id="paraVenta">
+            <input class="mt-0 rounded" type="checkbox" id="paraVenta" name="paraVenta" [(ngModel)]="producto.productoParaVenta">
             <label for="paraVenta" class="mx-2">Para venta</label>
           </div>
         </div>
       </form>
     </div>
     <div class="col mt-4">
-      <button class="btn btn-success w-100" data-toggle="modal" data-target="#exampleModal">Añadir Producto</button>
+      <button class="btn btn-success w-100" data-toggle="modal" data-target="#exampleModal" (click)="addProduct()">Añadir Producto</button>
     </div>
   </div>
 
   <div class="col-8">
-    <table class="table table-striped bg-dark text-white">
-      <tr>
+    <table class="table table-striped">
+      <tr class="bg-dark text-white">
         <th>Codigo</th>
         <th>Descripcion</th>
         <th>Pecios</th>

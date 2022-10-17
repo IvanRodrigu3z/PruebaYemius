@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Producto } from '../models/Producto.model';
 import { ProductosService } from '../service/productos.service';
 
 @Component({
@@ -9,15 +10,39 @@ import { ProductosService } from '../service/productos.service';
 export class ProductosComponent implements OnInit {
 
   constructor(private productoService : ProductosService) { }
+  precio:number = 0;
+  producto:Producto = {
+    codigo : "",
+    descripcion : "",
+    listaDePrecios : [],
+    imagen : "",
+    productoParaVenta : true,
+    porcentajeIva : 0
+
+  }
 
   productos: any = {};
 
   ngOnInit(): void {
+    this.getProducts();
+  }
+  
+  getProducts(){
     this.productoService.getProductos().subscribe(response =>{
-      console.log("adentroosdf")
       this.productos = response;
     });
-    console.log("listado de productos" + this.productos);
   }
 
+  addPrice(){
+    if(this.precio > 0){
+      this.producto.listaDePrecios.push(this.precio);
+    }
+    this.precio = 0;
+  }
+
+  addProduct(){
+    this.addPrice();
+    this.productoService.addProducto(this.producto);
+    this.getProducts();
+  }
 }
