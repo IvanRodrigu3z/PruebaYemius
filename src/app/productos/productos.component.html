@@ -59,8 +59,13 @@
         <td>{{producto.descripcion}}</td>
         <td>{{producto.listaDePrecios}}</td>
         <td>{{producto.porcentajeIva}}</td>
-        <td><a href="">editar</a></td>
+        <td>
+          <button (click)="getProduct(producto.id)">editar</button>
+          <button (click)="deleteProduct(producto.id)">eliminar</button>
+        </td>
       </tr>
     </table>
   </div>
 </div>
+
+<input type="text" value="{{product.descripcion}}">

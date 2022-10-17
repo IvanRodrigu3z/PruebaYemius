@@ -11,7 +11,9 @@ export class ProductosComponent implements OnInit {
 
   constructor(private productoService : ProductosService) { }
   precio:number = 0;
+  product:any = {};
   producto:Producto = {
+    id: 0,
     codigo : "",
     descripcion : "",
     listaDePrecios : [],
@@ -44,5 +46,15 @@ export class ProductosComponent implements OnInit {
     this.addPrice();
     this.productoService.addProducto(this.producto);
     this.getProducts();
+  }
+
+  getProduct(id:number){
+    this.productoService.getProducto(id).subscribe(resp =>{
+      this.product = resp;
+    })
+  }
+
+  deleteProduct(id:number){
+    this.productoService.deleteProduct(id);
   }
 }

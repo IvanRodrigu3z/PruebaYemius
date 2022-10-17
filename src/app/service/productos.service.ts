@@ -13,13 +13,21 @@ export class ProductosService {
   API_PRODUCTOS =  "http://localhost:5092/";
 
   public getProductos(){
-    return this.http.get(this.API_PRODUCTOS + "listar");
+    return this.http.get(this.API_PRODUCTOS + "productos");
   }
 
   public addProducto(producto:Producto){
     let api = this.API_PRODUCTOS + "añadir";
-    this.http.post(api, producto).subscribe(response => {
-      console.log("RESPUSTA", response);
-    });
+    this.http.post(api, producto);
+  }
+
+  public getProducto(id:number){
+    return this.http.get(this.API_PRODUCTOS + "producto/" + id);
+  }
+
+  public deleteProduct(id:number){
+    let api = this.API_PRODUCTOS + "eliminar/" + id;
+    
+    this.http.delete(api); 
   }
 }
