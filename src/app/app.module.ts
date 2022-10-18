@@ -7,13 +7,15 @@ import { EncriptacionComponent } from './encriptacion/encriptacion.component';
 import { FormsModule } from '@angular/forms';
 import { ProductosComponent } from './productos/productos.component';
 import { HttpClientModule } from '@angular/common/http';
+import { DetalleComponent } from './productos/detalle/detalle.component';
 
  
 @NgModule({
   declarations: [
     AppComponent,
     EncriptacionComponent,
-    ProductosComponent
+    ProductosComponent,
+    DetalleComponent
   ],
   imports: [
     BrowserModule,

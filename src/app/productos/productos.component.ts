@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, NgZone, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { Producto } from '../models/Producto.model';
 import { ProductosService } from '../service/productos.service';
 
@@ -7,11 +7,13 @@ import { ProductosService } from '../service/productos.service';
   templateUrl: './productos.component.html',
   styleUrls: ['./productos.component.css']
 })
-export class ProductosComponent implements OnInit {
+export class ProductosComponent implements OnInit, OnChanges {
 
-  constructor(private productoService : ProductosService) { }
+  constructor(private productoService : ProductosService){ 
+    this.productos;
+  }
   precio:number = 0;
-  product:any = {};
+  detalleProducto:any = {};
   producto:Producto = {
     id: 0,
     codigo : "",
@@ -33,6 +35,7 @@ export class ProductosComponent implements OnInit {
     this.productoService.getProductos().subscribe(response =>{
       this.productos = response;
     });
+    return this.productos;
   }
 
   addPrice(){
@@ -45,16 +48,21 @@ export class ProductosComponent implements OnInit {
   addProduct(){
     this.addPrice();
     this.productoService.addProducto(this.producto);
-    this.getProducts();
+    
   }
+
 
   getProduct(id:number){
     this.productoService.getProducto(id).subscribe(resp =>{
-      this.product = resp;
-    })
+      this.detalleProducto = resp;
+    });
   }
 
   deleteProduct(id:number){
     this.productoService.deleteProduct(id);
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    this.productos;
   }
 }

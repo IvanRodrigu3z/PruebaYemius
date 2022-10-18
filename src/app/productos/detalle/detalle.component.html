@@ -1,0 +1,55 @@
+<div class="row justify-content-center">
+    <div class="col-9">
+        <div class="card text-left shadow">
+            <div class="card-header">
+                <h4 class="card-title text-center">Detalle producto</h4>
+            </div>
+
+            <img class="card-img-top" src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fexoticfruitbox.com%2Freceta%2Faguacates-rellenos-huevo-bacon-toda-una-delicia%2F&psig=AOvVaw1-BGShYxuDbGcY4YxbLlxN&ust=1666117449328000&source=images&cd=vfe&ved=0CA0QjRxqFwoTCKCo2afx5_oCFQAAAAAdAAAAABAE" alt="">
+            <div class="card-body p-4">
+                <form action="">
+                    <div class="form-group w-25">
+                        <label for="codigo">Codigo</label>
+                        <input type="text" class="form-control" name="codigo" [value]="" id="codigo">
+                    </div>
+                    <div class="form-group w-50">
+                        <label for="descipcion">Descripción</label>
+                        <textarea type="text" class="form-control" id="descripcion" style="max-height: 80px;"
+                            name="descipcion"></textarea>
+                    </div>
+                    <div class="form-group col-6 m-0 w-25">
+                        <label for="">Precios</label>
+                        <div class="input-group">
+                            <input type="number" class="form-control" placeholder="$" name="precio">
+                            <button class="btn btn-outline-secondary" type="button" id="button-addon2"
+                                title="Añadir precio">+</button>
+                        </div>
+                    </div>
+                    <div class="form-group col-6 w-25 d-block">
+                        <label for="iva">IVA</label>
+                        <div class="input-group">
+                            <span class="input-group-text" id="basic-addon1">%</span>
+                            <input type="number" class="form-control w-25" id="iva" name="iva">
+                        </div>
+                    </div>
+                    <div class="form-group mt-3">
+                        <div class="input-group mt-3">
+                            <input class="mt-0 rounded" type="checkbox" id="paraVenta" name="paraVenta">
+                            <label for="paraVenta" class="mx-2">Para venta</label>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="card-footer">
+                <div class="row justify-content-around my-3">
+                    <div class="col-3">
+                        <button class="btn btn-success w-100">Guardar</button>
+                    </div>
+                    <div class="col-3">
+                        <button class="btn btn-danger w-100">Eliminar Producto</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

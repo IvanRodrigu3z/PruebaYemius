@@ -60,12 +60,9 @@
         <td>{{producto.listaDePrecios}}</td>
         <td>{{producto.porcentajeIva}}</td>
         <td>
-          <button (click)="getProduct(producto.id)">editar</button>
-          <button (click)="deleteProduct(producto.id)">eliminar</button>
+          <a routerLink="/detalle/{{producto.id}}" class="text-info"><i class="fa-solid fa-pen-to-square"></i></a>
         </td>
       </tr>
     </table>
   </div>
 </div>
-
-<input type="text" value="{{product.descripcion}}">

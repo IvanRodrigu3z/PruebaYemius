@@ -12,13 +12,13 @@ export class ProductosService {
 
   API_PRODUCTOS =  "http://localhost:5092/";
 
-  public getProductos(){
+  public getProductos():Observable<any>{
     return this.http.get(this.API_PRODUCTOS + "productos");
   }
 
   public addProducto(producto:Producto){
     let api = this.API_PRODUCTOS + "añadir";
-    this.http.post(api, producto);
+    this.http.post(api, producto).subscribe(res => console.log("respuesta", res));
   }
 
   public getProducto(id:number){
@@ -27,7 +27,6 @@ export class ProductosService {
 
   public deleteProduct(id:number){
     let api = this.API_PRODUCTOS + "eliminar/" + id;
-    
-    this.http.delete(api); 
+    this.http.delete(api).subscribe(); 
   }
 }
